@@ -1,0 +1,56 @@
+.header {
+  display: flex;
+  max-width: 1920px;
+  min-height: 88px;
+  margin: 0 auto;
+  background-color: #1C1C21;
+}
+
+.container {
+  display: flex;
+  width: 1280px;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.menu {
+  display: flex;
+  flex-direction: row;
+}
+
+.menuElem {
+  display: flex;
+  min-width: 178px;
+  max-height: 56px;
+  align-items: center;
+  justify-content: center;
+}
+
+.menuTriggerText {
+  font-family: 'Jet Brains Mono', sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+  color: #F2F2F3;
+  margin-left: 9px;
+  text-align: center;
+}
+
+.menuTriggerTextDisabled {
+  font-family: 'Jet Brains Mono', sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+  margin-left: 9px;
+  text-align: center;
+  color: #8585AD;
+}
+
+.menuIconDisabled {
+  fill: #8585AD;
+}
+
+.logoContainer {
+  padding-right: 174px;
+}

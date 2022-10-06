@@ -1,0 +1,52 @@
+.container {
+  display: flex;
+  max-width: 600px;
+  flex-wrap: wrap;
+  padding-top: 60px;
+  justify-content: end;
+}
+
+.itemsContainer {
+  max-width: 536px;
+}
+
+.button {
+  width: 215px;
+  height: 64px;
+  background: linear-gradient(63.18deg, #801AB3 0%, #4C4CFF 100%);
+  border-radius: 64px;
+  font-family: 'Jet Brains Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  color: #F2F2F3;
+  padding: 0;
+}
+
+.totalPriceContainer {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: row;
+}
+
+.totalPrice {
+  display: flex;
+  align-items: center;
+  margin-right: 41.5px;
+}
+
+.totalPriceText {
+  font-family: 'Iceland';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 48px;
+  line-height: 36px;
+  color: #F2F2F3;
+}
+
+.totalPriceIcon {
+  width: 32px;
+  height: 32px;
+} 
