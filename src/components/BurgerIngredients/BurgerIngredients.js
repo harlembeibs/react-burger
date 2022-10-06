@@ -55,9 +55,9 @@ const Cart = ({ cart }) => {
 };
 
 Cart.propTypes = {
+  name: PropTypes.string,
   image: PropTypes.string,
-  price: PropTypes.string,
-  name: PropTypes.string
+  price: PropTypes.string
 };
 
 
