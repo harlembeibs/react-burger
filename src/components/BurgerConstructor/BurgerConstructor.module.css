@@ -3,11 +3,24 @@
   max-width: 600px;
   flex-wrap: wrap;
   padding-top: 60px;
-  justify-content: end;
+  min-height: 650px;
+}
+
+.top {
+  position: absolute;
+  top: 0;
+}
+
+.BurgerConstructorItemsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: relative;
 }
 
 .itemsContainer {
   max-width: 536px;
+  max-height: 304px;
 }
 
 .button {
@@ -29,6 +42,8 @@
   margin-top: 40px;
   display: flex;
   flex-direction: row;
+  width: 536px;
+  justify-content: end;
 }
 
 .totalPrice {
@@ -49,4 +64,21 @@
 .totalPriceIcon {
   width: 32px;
   height: 32px;
-} 
+}
+
+.scrollBar {
+  min-width: 552px;
+  max-height: 450px;  
+  margin: 16px 0 16px;
+}
+
+.thumbVertical {
+  background-color: #8585AD;
+  max-height: 664px;
+}
+
+.svg {
+  width: 32px;
+  height: 32px;
+  fill: #F2F2F3;
+}

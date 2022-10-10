@@ -2,6 +2,7 @@
   display: flex;
   max-width: 600px;
   flex-wrap: wrap;
+  min-height: 650px;
 }
 
 .ingredientsItem {
@@ -77,4 +78,19 @@
   width: 270px;
   height: 48px;
   text-align: center;
+}
+
+.scrollBar {
+  width: 600px;
+  height: 630px;
+}
+
+.thumbVertical {
+  background-color: #8585AD;
+  max-height: 664px;
+}
+
+.tabContainer {
+  display: flex;
+  padding-bottom: 40px;
 }
