@@ -1,15 +1,16 @@
 .container {
   display: flex;
-  max-width: 600px;
+  max-width: 626.5px;
   flex-wrap: wrap;
   padding-top: 60px;
   min-height: 650px;
+  justify-content: end;
 }
 
-.top {
-  position: absolute;
-  top: 0;
-}
+.ingredientsContainer {
+  display: flex;
+  align-items: center;
+} 
 
 .BurgerConstructorItemsContainer {
   display: flex;
@@ -19,7 +20,7 @@
 }
 
 .itemsContainer {
-  max-width: 536px;
+  max-width: 559px;
   max-height: 304px;
 }
 
@@ -66,11 +67,12 @@
   height: 32px;
 }
 
-.scrollBar {
-  min-width: 552px;
-  max-height: 450px;  
+.scrollBarContainer {
+  min-width: 559px;
+  min-height: 464px;
   margin: 16px 0 16px;
 }
+
 
 .thumbVertical {
   background-color: #8585AD;
@@ -81,4 +83,8 @@
   width: 32px;
   height: 32px;
   fill: #F2F2F3;
+}
+
+.constructor {
+  margin-right: 8px;
 }

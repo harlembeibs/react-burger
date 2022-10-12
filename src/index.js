@@ -8,6 +8,6 @@ const container = document.getElementById('root');
 const root = createRoot(container);
 root.render(
   <React.StrictMode>
-    <App thread={data.thread} />
+    <App data={data} />
   </React.StrictMode>
 );

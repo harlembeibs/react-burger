@@ -4,15 +4,10 @@ import burgerIngredientsStyles from './BurgerIngredients.module.css';
 import { Tab } from '@ya.praktikum/react-developer-burger-ui-components';
 import { CurrencyIcon } from '@ya.praktikum/react-developer-burger-ui-components';
 import { Scrollbars } from 'react-custom-scrollbars-2';
+import dataPropTypes from '../../prop-types/prop-types';
 
-const messagePropTypes = PropTypes.shape({
-  name: PropTypes.string.isRequired,
-  image: PropTypes.string.isRequired,
-  price: PropTypes.number.isRequired
-});
-
-const BunCarts = ({ thread }) => {
-const buns = thread.filter((item) => item.type === 'bun');
+const BunCarts = ({ data }) => {
+const buns = data.filter((item) => item.type === 'bun');
 return (
     <>
       {buns.map((item) => {
@@ -23,11 +18,11 @@ return (
 }
 
 BunCarts.propTypes = {
-  thread: PropTypes.arrayOf(messagePropTypes).isRequired
+  data: PropTypes.arrayOf(dataPropTypes).isRequired
 };
 
-const SauceCarts = ({ thread }) => {
-  const sauce = thread.filter((item) => item.type === 'sauce');
+const SauceCarts = ({ data }) => {
+  const sauce = data.filter((item) => item.type === 'sauce');
   return (
     <>
       {sauce.map((item) => {
@@ -38,12 +33,12 @@ const SauceCarts = ({ thread }) => {
 }
 
 SauceCarts.propTypes = {
-  thread: PropTypes.arrayOf(messagePropTypes).isRequired
+  data: PropTypes.arrayOf(dataPropTypes).isRequired
 };
 
 
-const MainCarts = ({ thread }) => {
-  const mains = thread.filter((item) => item.type === 'main');
+const MainCarts = ({ data }) => {
+  const mains = data.filter((item) => item.type === 'main');
   return (
     <>
       {mains.map((item) => {
@@ -54,7 +49,7 @@ const MainCarts = ({ thread }) => {
 }
 
 MainCarts.propTypes = {
-  thread: PropTypes.arrayOf(messagePropTypes).isRequired
+  data: PropTypes.arrayOf(dataPropTypes).isRequired
 };
 
 const Cart = ({ cart }) => {
@@ -72,7 +67,7 @@ const Cart = ({ cart }) => {
 
 
 Cart.propTypes = {
-  cart: messagePropTypes.isRequired
+  cart: dataPropTypes.isRequired
 };
 
 
@@ -97,19 +92,19 @@ class BurgerIngredients extends React.Component {
           <article className={burgerIngredientsStyles.ingredientsItem}>
             <h2 className={burgerIngredientsStyles.ingredientsItemTitle}>Булки</h2>
             <ul className={burgerIngredientsStyles.ingredientsCartContainer}>
-              <BunCarts thread={this.props.thread} />
+              <BunCarts data={this.props.data} />
             </ul>
           </article>
           <article className={burgerIngredientsStyles.ingredientsItem}>
             <h2 className={burgerIngredientsStyles.ingredientsItemTitle}>Соусы</h2>
             <ul className={burgerIngredientsStyles.ingredientsCartContainer}>
-              <SauceCarts thread={this.props.thread} />
+              <SauceCarts data={this.props.data} />
             </ul>
           </article>
           <article className={burgerIngredientsStyles.ingredientsItem}>
             <h2 className={burgerIngredientsStyles.ingredientsItemTitle}>Начинки</h2>
             <ul className={burgerIngredientsStyles.ingredientsCartContainer}>
-              <MainCarts thread={this.props.thread} />
+              <MainCarts data={this.props.data} />
             </ul>
           </article>
           </Scrollbars>

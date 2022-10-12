@@ -1,15 +1,10 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import appStyles from './app.module.css';
 import AppHeader from '../AppHeader/AppHeader';
 import BurgerIngredients from '../BurgerIngredients/BurgerIngredients';
 import BurgerConstructor from '../BurgerConstructor/BurgerConstructor';
+import data from '../../utils/utils.js'
 
-const messagePropTypes = PropTypes.shape({
-  name: PropTypes.string.isRequired,
-  image: PropTypes.string.isRequired,
-  price: PropTypes.number.isRequired
-});
 
 
 class App extends React.Component {
@@ -18,16 +13,13 @@ class App extends React.Component {
         <div className={appStyles.app}>
           <AppHeader />
           <main className={appStyles.main}>
-            <BurgerIngredients thread={this.props.thread} />
-            <BurgerConstructor thread={this.props.thread} />
+            <BurgerIngredients data={data} />
+            <BurgerConstructor data={data} />
           </main>        
         </div>
       );
     }
 }
 
-App.propTypes = {
-  thread: PropTypes.arrayOf(messagePropTypes).isRequired
-};
 
 export default App
