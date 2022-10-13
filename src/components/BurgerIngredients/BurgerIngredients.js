@@ -4,42 +4,53 @@ import burgerIngredientsStyles from './BurgerIngredients.module.css';
 import { Tab } from '@ya.praktikum/react-developer-burger-ui-components';
 import { CurrencyIcon } from '@ya.praktikum/react-developer-burger-ui-components';
 import { Scrollbars } from 'react-custom-scrollbars-2';
+import dataPropTypes from '../../prop-types/prop-types';
 
-const BunCarts = ({ thread }) => {
+const BunCarts = ({ data }) => {
+const buns = data.filter((item) => item.type === 'bun');
 return (
     <>
-      {thread.map((item, index) => {
-        if (item.type === 'bun') {
-          return <Cart cart={item} key={index} />
-        }
+      {buns.map((item) => {
+        return <Cart cart={item} key={item._id} />
       })}
     </>
   )
 }
 
-const SauceCarts = ({ thread }) => {
+BunCarts.propTypes = {
+  data: PropTypes.arrayOf(dataPropTypes).isRequired
+};
+
+const SauceCarts = ({ data }) => {
+  const sauce = data.filter((item) => item.type === 'sauce');
   return (
     <>
-      {thread.map((item, index) => {
-        if (item.type === 'sauce') {
-          return <Cart cart={item} key={index} />
-        }
+      {sauce.map((item) => {
+        return <Cart cart={item} key={item._id} />
       })}
     </>
   )
 }
 
-const MainCarts = ({ thread }) => {
+SauceCarts.propTypes = {
+  data: PropTypes.arrayOf(dataPropTypes).isRequired
+};
+
+
+const MainCarts = ({ data }) => {
+  const mains = data.filter((item) => item.type === 'main');
   return (
     <>
-      {thread.map((item, index) => {
-        if (item.type === 'main') {
-          return <Cart cart={item} key={index} />
-        }
+      {mains.map((item) => {
+        return <Cart cart={item} key={item._id} />
       })}
     </>
   )
 }
+
+MainCarts.propTypes = {
+  data: PropTypes.arrayOf(dataPropTypes).isRequired
+};
 
 const Cart = ({ cart }) => {
   return (
@@ -54,54 +65,49 @@ const Cart = ({ cart }) => {
   );
 };
 
+
 Cart.propTypes = {
-  image: PropTypes.string,
-  price: PropTypes.string,
-  name: PropTypes.string
+  cart: dataPropTypes.isRequired
 };
 
 
 
 class BurgerIngredients extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return (
       <section className={burgerIngredientsStyles.container}>
-      <h1 className={burgerIngredientsStyles.title}>Соберите бургер</h1>
-      <div style={{ display: 'flex', paddingBottom: 40 }}>
-        <Tab active={true}>
-          Булки
-        </Tab>
-        <Tab>
-          Соусы
-        </Tab>
-        <Tab>
-          Начинки
-        </Tab>
-      </div>
-      <Scrollbars style={{ width: 600, height: 630}} renderThumbVertical={props => <div {...props} className="thumb-vertical" style={{ backgroundColor: '#8585AD', maxHeight: 664 }}/>}>
-        <article className={burgerIngredientsStyles.ingredientsItem}>
-          <h2 className={burgerIngredientsStyles.ingredientsItemTitle}>Булки</h2>
-          <ul className={burgerIngredientsStyles.ingredientsCartContainer}>
-            <BunCarts thread={this.props.thread} />
-          </ul>
-        </article>
-        <article className={burgerIngredientsStyles.ingredientsItem}>
-          <h2 className={burgerIngredientsStyles.ingredientsItemTitle}>Соусы</h2>
-          <ul className={burgerIngredientsStyles.ingredientsCartContainer}>
-            <SauceCarts thread={this.props.thread} />
-          </ul>
-        </article>
-        <article className={burgerIngredientsStyles.ingredientsItem}>
-          <h2 className={burgerIngredientsStyles.ingredientsItemTitle}>Начинки</h2>
-          <ul className={burgerIngredientsStyles.ingredientsCartContainer}>
-            <MainCarts thread={this.props.thread} />
-          </ul>
-        </article>
-        </Scrollbars>
+        <h1 className={burgerIngredientsStyles.title}>Соберите бургер</h1>
+        <div className={burgerIngredientsStyles.tabContainer}>
+          <Tab active={true}>
+            Булки
+          </Tab>
+          <Tab>
+            Соусы
+          </Tab>
+          <Tab>
+            Начинки
+          </Tab>
+        </div>
+        <Scrollbars className={burgerIngredientsStyles.scrollBar} renderThumbVertical={props => <div {...props} className={burgerIngredientsStyles.thumbVertical}/>}>
+          <article className={burgerIngredientsStyles.ingredientsItem}>
+            <h2 className={burgerIngredientsStyles.ingredientsItemTitle}>Булки</h2>
+            <ul className={burgerIngredientsStyles.ingredientsCartContainer}>
+              <BunCarts data={this.props.data} />
+            </ul>
+          </article>
+          <article className={burgerIngredientsStyles.ingredientsItem}>
+            <h2 className={burgerIngredientsStyles.ingredientsItemTitle}>Соусы</h2>
+            <ul className={burgerIngredientsStyles.ingredientsCartContainer}>
+              <SauceCarts data={this.props.data} />
+            </ul>
+          </article>
+          <article className={burgerIngredientsStyles.ingredientsItem}>
+            <h2 className={burgerIngredientsStyles.ingredientsItemTitle}>Начинки</h2>
+            <ul className={burgerIngredientsStyles.ingredientsCartContainer}>
+              <MainCarts data={this.props.data} />
+            </ul>
+          </article>
+          </Scrollbars>
       </section>
     );
   }

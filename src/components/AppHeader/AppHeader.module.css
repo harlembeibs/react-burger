@@ -25,6 +25,7 @@
   max-height: 56px;
   align-items: center;
   justify-content: center;
+  text-decoration: none;
 }
 
 .menuTriggerText {
