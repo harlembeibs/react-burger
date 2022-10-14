@@ -22,10 +22,11 @@ const BurgerConstructorItems = ({ data }) => {
               type={undefined} 
               text={item.name}
               price={item.price}
-              thumbnail={item.image}
               key={item._id}
+              thumbnail={item.image}
             />
             </div>
+            /*Доброе время суток, по ошибке смерджил ветки, пришлось поковыряться, полагаю из-за этого не видны изменения, но вроде исправил все замечания */
           )
         })}
     </div>
